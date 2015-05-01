@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
-			<and abstract="true" mandatory="true" name="EnderYasarIsikTask1">
+			<and abstract="true" mandatory="true" name="Vokabeltrainer">
 				<and abstract="true" mandatory="true" name="Vokabelverwaltung">
 					<description>
 						Die Vokabelverwaltung stellt das Basis-Feature dieser Softwareproduktlinie dar. Sie enhält elementare Funktionen für das Darstellen, Hinzufügen, Entfernen und Modifizieren von Vokabeln.
