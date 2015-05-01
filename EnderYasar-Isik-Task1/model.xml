@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="EnderYasarIsikTask1">
+				<and abstract="true" mandatory="true" name="Vokabelverwaltung">
+					<description>
+						Die Vokabelverwaltung stellt das Basis-Feature dieser Softwareproduktlinie dar. Sie enhält elementare Funktionen für das Darstellen, Hinzufügen, Entfernen und Modifizieren von Vokabeln.
+					</description>
+					<feature name="Lektionen">
+						<description>
+							Unter Lektionen ist eine beliebige Ansammlung von Vokabeln zu verstehen. Sie werden verwendet, um Vokabeln (inhaltlich bzw. themenspezifisch) strukutiert zu gruppieren und zu Lektionen zusammenzufassen.
+						</description>
+					</feature>
+				</and>
+				<and abstract="true" mandatory="true" name="Vokabelabfrage">
+					<description>
+						Dieses Feature beinhaltet das Abfragesystem. Der Vokabeltrainer muss in der Lage sein, die von dem Nutzer hinterlegten Vokabeln (systematisch) abzufragen.
+					</description>
+					<or abstract="true" mandatory="true" name="Abfragereihenfolge">
+						<description>
+							Für eine systematische und Lernerfolg-bringende Abfrage von Vokabeln müssen die Vokabeln in unterschiedlichen Reihenfolgen abgefragt werden. Dafür stellt dieses Feature unterschiedliche Funktionalitäten bereit.
+						</description>
+						<feature mandatory="true" name="Chronologisch">
+							<description>
+								Die Vokabeln werden nach der Reihenfolge ihrer Erfassung abgefragt. Dazu müssen sie evtl. entsprechend sortiert werden.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Sortiert">
+							<description>
+								Die Vokabeln werden alphabetisch von A - Z oder umgekehrt sortiert und so abgefragt.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Zufällig">
+							<description>
+								Die Abfragereihenfolge der Vokabeln wird zufällig ermittelt.
+							</description>
+						</feature>
+					</or>
+					<or abstract="true" mandatory="true" name="Abfragetyp">
+						<description>
+							Das Feature Abfragetyp ermöglicht unterschiedliche Verfahren wie die Vokabeln abgefragt werden können. Es ist besonders wichtig, dass unterschiedliche Verfahren an dieser Stelle angeboten werden, um den Lernerfolg zu erhöhen und dem Anwender mehr Vielfalt anzubieten.
+						</description>
+						<feature mandatory="true" name="Quiz">
+							<description>
+								Dieses Abfrageverfahren beinhaltet ein Wortspiel bei dem die Wörter lückenhaft dargestellt werden. Der Anwender muss die Lücken mit entsprechenden Buchstaben füllen.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Mehrfachauswahl">
+							<description>
+								Anhand dieses Features ist der Anwender in der Lage, die abgefragten Vokabeln aus einer Liste von mehreren Antworten, welche auch falsche Antwortenoptionen beinhaltet, auszuwählen.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Tastatureingabe">
+							<description>
+								Die Tastatureingabe stellt die klassische Methode der Vokabelabfrage dar, bei dem der Benutzer die Abfragen mittels Tastatureingabe beantworten muss.
+							</description>
+						</feature>
+					</or>
+					<feature name="Variable Abfragerichtung">
+						<description>
+							Die variable Abfragerichtung stellt dem Nutzer die Funktion bereit, dass er zwischen den Abfragerichtungen SpracheA nach SpracheB und SpracheB nach SpracheA auswählen und auf diese Weise die Vokabelabfrage nach Belieben variieren kann.
+						</description>
+					</feature>
+				</and>
+				<or abstract="true" name="Import">
+					<description>
+						Der Import ermöglicht das Importieren von persistent gespeicherten Vokabellisten und zusätzlichen Einstellungen. Unter zusätzlichen Einstellungen sind Lektionen oder auch Statistiken zu verstehen. Dieses Feature benötigt allerdings das Export-Feature, damit die Vokabellisten überhaupt exportiert werden können. Funktional sind beide voneinander unabhängig, aber semantisch macht ein Programm mit einer Import- aber ohne eine Export-Funktion wenig Sinn.
+					</description>
+					<feature mandatory="true" name="CSV Import">
+						<description>
+							Dieses Feature ermöglicht das Importieren von exportierten Vokabellisten und zusätzlichen Einstellungen im CSV-Dateiformat.
+						</description>
+					</feature>
+					<feature mandatory="true" name="Datenbank Import">
+						<description>
+							Die in einer Datenbank hinterlegten Vokabellisten und zusätzlichen Einstellungen können mittels dieses Features aus der Datenbank extrahiert und in die Software eingebunden werden.
+						</description>
+					</feature>
+					<feature mandatory="true" name="XML-Datei Import">
+						<description>
+							Dieses Import-Feature ermöglicht das Importieren von Vokabellisten und zusätzlichen Einstellungen im XML-Dateiformat.
+						</description>
+					</feature>
+				</or>
+				<or abstract="true" name="Export">
+					<description>
+						Export stellt unterschiedliche Funktionalitäten für die persistente Speicherung von Vokabellisten und zusätzlichen Einstellungen bereit, um die Vokabeln nicht nach jedem Programmstart erneut zu erfassen. Unter zusätzlichen Einstellungen sind Lektionen oder auch Statistiken zu verstehen.
+					</description>
+					<feature mandatory="true" name="CSV Export">
+						<description>
+							Mit CSV-Export können erfasste Vokabeln und zusätzliche Einstellungen im CSV-Dateiformat persistent gespeichert und als Datei abgelegt werden.
+						</description>
+					</feature>
+					<feature mandatory="true" name="Datenbank Export">
+						<description>
+							Mit Hilfe dieses Features können erfasste Vokabeln und zusätzliche Einstellungen in einer Datenbank persistent hinterlegt werden.
+						</description>
+					</feature>
+					<feature mandatory="true" name="XML-Datei Export">
+						<description>
+							XML-Export ermöglicht es erfasste Vokabeln und zusätzliche Einstellungen im XML-Dateiformat persistent zu speichern und als Datei abzulegen.
+						</description>
+					</feature>
+				</or>
+				<feature name="Statistik">
+					<description>
+						Die Statistik beinhaltet Auswertungen in Form eines Punktesystems über die Anzahl der richtigen und falschen Antworten bei Vokabelabfragen. Statistiken können auf eine Vokabelliste oder auch auf Lektionen abgeschnitten sein.
+					</description>
+				</feature>
+				<feature name="Drucken">
+					<description>
+						Dieses Feature stellt die Funktion zur Verfügung, dass erfasste Vokabeln in Form einer Liste augedruckt werden können.
+					</description>
+				</feature>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Import</var>
+					<var>Export</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>CSV Import</var>
+					<var>CSV Export</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Datenbank Import</var>
+					<var>Datenbank Export</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>XML-Datei Import</var>
+					<var>XML-Datei Export</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

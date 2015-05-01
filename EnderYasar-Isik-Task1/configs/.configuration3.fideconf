@@ -1,0 +1,25 @@
+# Lists all features from the model with manual (first digit) and automatic (second digit) selection
+# 0 = deselected, 1 = selected, 2 = undefined
+21EnderYasarIsikTask1
+21Vokabelverwaltung
+12Lektionen
+21Vokabelabfrage
+21Abfragereihenfolge
+12Chronologisch
+12Sortiert
+12Zufällig
+21Abfragetyp
+22Quiz
+22Mehrfachauswahl
+12Tastatureingabe
+22Variable Abfragerichtung
+21Import
+22CSV Import
+22Datenbank Import
+12XML-Datei Import
+21Export
+22CSV Export
+22Datenbank Export
+11XML-Datei Export
+12Statistik
+12Drucken
