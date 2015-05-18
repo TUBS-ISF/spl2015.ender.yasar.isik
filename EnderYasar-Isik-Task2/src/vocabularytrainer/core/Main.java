@@ -16,7 +16,7 @@ public class Main {
 				ProductLineConfiguration.importXML = true;
 			} else if(arg.equals("-ex")) {
 				ProductLineConfiguration.exportXML = true;
-			} else if(arg.equals("-iosor")) {
+			} else if(arg.equals("-iosort")) {
 				ProductLineConfiguration.inquiryOrderSorted = true;
 			} else if(arg.equals("-iochr")) {
 				ProductLineConfiguration.inquiryOrderChronological = true;
@@ -30,7 +30,7 @@ public class Main {
 				System.out.println("-s, statistics");
 				System.out.println("-ix, importXML");
 				System.out.println("-ex, exportXML");
-				System.out.println("-iosor, inquiryOrderSorted");
+				System.out.println("-iosort, inquiryOrderSorted");
 				System.out.println("-iochr, inquiryOrderChronological");
 				System.out.println("-itk, inquiryTypeKeyboard");
 				System.out.println("-idgf, inquiryDirectionGermanForeign");
@@ -39,8 +39,8 @@ public class Main {
 			}
 		}
 		
-		if((!ProductLineConfiguration.importXML && ProductLineConfiguration.exportXML) | (ProductLineConfiguration.importXML && !ProductLineConfiguration.exportXML)) {
-			System.out.println("Wenn importXML ausgewaehlt wurde, dann muss auch exportXML ausgewaehlt werden, und umgekehrt");
+		if((ProductLineConfiguration.importXML && !ProductLineConfiguration.exportXML)) {
+			System.out.println("Wenn importXML ausgewaehlt wurde, dann muss auch -ex exportXML ausgewaehlt werden.");
 			System.exit(-1);
 		}
 		

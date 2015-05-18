@@ -1,0 +1,14 @@
+Beschreibung der Kombinationen
+
+1) 	Ohne die Auswahl von Features in der Kommandozeile befindet sich das Programm in 
+	der default.config.
+
+2)	Auswahl von -ix und -ie sorgen dafür, dass in dem Vokabeltrainer Vokabellisten aus 
+	XML-Dateien importiert und in solche exportiert werden können. Sie ergänzen die 
+	default.config. Die Import-Funktion setzt die Export-Funktion voraus.
+	
+3)	Auswahl von -isort ergänzt die Funktionalität mit einer sortierten Abfrage der 
+	Vokabeln und die Auswahl von -idfg fügt das Feature für eine zusätzliche Abfragerichtung 
+	von der	Fremdsprache in die deutsche Sprache hinzu.
+	
+4)	Die Option -s ergänzt die default.config mit einer Statistik-Funktion.
