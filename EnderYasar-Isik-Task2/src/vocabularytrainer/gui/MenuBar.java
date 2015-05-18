@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -69,19 +70,21 @@ public class MenuBar {
 				}
 			}
 		});
-		
 		fileSaveAsItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.showSaveDialog(fileChooser);
-				FileFilter filter = new FileNameExtensionFilter("Dateityp", "xml");
-				fileChooser.addChoosableFileFilter(filter);
-				@SuppressWarnings("unchecked")
-				XMLFileExporter xmlExporter = new XMLFileExporter(tableModel.getDataVector(), fileChooser.getSelectedFile().getAbsolutePath());
-				xmlExporter.exportWordList();
+				if(tableModel.getRowCount() == 0) {
+					JOptionPane.showMessageDialog(null, "Es sind keine Vokabeln in der Liste hinterlegt.", "Warnung", JOptionPane.WARNING_MESSAGE);
+				} else {
+					JFileChooser fileChooser = new JFileChooser();
+					fileChooser.showSaveDialog(fileChooser);
+					FileFilter filter = new FileNameExtensionFilter("Dateityp", "xml");
+					fileChooser.addChoosableFileFilter(filter);
+					@SuppressWarnings("unchecked")
+					XMLFileExporter xmlExporter = new XMLFileExporter(tableModel.getDataVector(), fileChooser.getSelectedFile().getAbsolutePath());
+					xmlExporter.exportWordList();
+				}
 			}
 		});
-		
 		shutdownProgramItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

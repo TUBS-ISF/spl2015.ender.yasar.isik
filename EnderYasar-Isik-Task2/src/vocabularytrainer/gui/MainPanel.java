@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -165,7 +166,11 @@ public class MainPanel {
 		startPracticeButton.addActionListener(new ActionListener() {
 			@SuppressWarnings({ "unchecked", "unused" })
 			public void actionPerformed(ActionEvent e) {
-				PracticeFrame practiceFrame = new PracticeFrame(tableModel.getDataVector(), InquiryType.getEnumeration(typeComboBox.getSelectedItem().toString()), InquiryOrder.getEnumeration(orderComboBox.getSelectedItem().toString()), InquiryDirection.getEnumeration(directionComboBox.getSelectedItem().toString()));
+				if(tableModel.getRowCount() == 0) {
+					JOptionPane.showMessageDialog(null, "Es sind keine Vokabeln in der Liste hinterlegt.", "Warnung", JOptionPane.WARNING_MESSAGE);
+				} else {
+					PracticeFrame practiceFrame = new PracticeFrame(tableModel.getDataVector(), InquiryType.getEnumeration(typeComboBox.getSelectedItem().toString()), InquiryOrder.getEnumeration(orderComboBox.getSelectedItem().toString()), InquiryDirection.getEnumeration(directionComboBox.getSelectedItem().toString()));
+				}
 			}
 		});
 		

@@ -7,6 +7,7 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.filechooser.FileFilter;
@@ -79,12 +80,16 @@ public class ToolBar {
 		fileSaveAsButton.addActionListener(new ActionListener() {
 			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.showSaveDialog(fileChooser);
-				FileFilter filter = new FileNameExtensionFilter("Dateityp", "xml");
-				fileChooser.addChoosableFileFilter(filter);
-				FileManagement fileManagementListener = new FileManagement(FileType.XML);
-				fileManagementListener.exportFile(tableModel.getDataVector(), fileChooser.getSelectedFile().getAbsolutePath());
+				if(tableModel.getRowCount() == 0) {
+					JOptionPane.showMessageDialog(null, "Es sind keine Vokabeln in der Liste hinterlegt.", "Warnung", JOptionPane.WARNING_MESSAGE);
+				} else {
+					JFileChooser fileChooser = new JFileChooser();
+					fileChooser.showSaveDialog(fileChooser);
+					FileFilter filter = new FileNameExtensionFilter("Dateityp", "xml");
+					fileChooser.addChoosableFileFilter(filter);
+					FileManagement fileManagementListener = new FileManagement(FileType.XML);
+					fileManagementListener.exportFile(tableModel.getDataVector(), fileChooser.getSelectedFile().getAbsolutePath());
+				}
 			}
 		});
 		addWordButton.addActionListener(new ActionListener() {

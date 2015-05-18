@@ -26,7 +26,9 @@ public class PracticeFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private int index = 0, numberOfCorrectPractices = 0, numberOfIncorrectPractices = 0;
 	private Vector<Vector<String>> wordList;
+	@SuppressWarnings("unused")
 	private InquiryType inquiryType;
+	@SuppressWarnings("unused")
 	private InquiryOrder inquiryOrder;
 	private InquiryDirection inquiryDirection;
 	private JLabel numberOfWordsValueLabel, numberOfUnpracticedWordsValueLabel, numberOfCorrectAnswersValueLabel, numberOfIncorrectAnswersValueLabel;
@@ -77,7 +79,6 @@ public class PracticeFrame extends JFrame {
 			germanTextField.setText(wordList.get(0).elementAt(0));
 			germanTextField.setEnabled(false);
 		}
-		
 		
 		germanTextField.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
@@ -182,13 +183,6 @@ public class PracticeFrame extends JFrame {
 		}
 	}
 	
-	private void sortWordList() {
-		Collections.sort(wordList, new Comparator<Vector<String>>(){
-		    public int compare(Vector<String> vector1, Vector<String> v2) {
-		        return vector1.get(0).compareTo(v2.get(0));
-		}});
-	}
-	
 	private void checkWordPairFromGermanToForeign() {
 		if(foreignTextField.getText().equals(wordList.get(index).elementAt(1))) {
 			correctnessField.setBackground(Color.GREEN);
@@ -235,5 +229,12 @@ public class PracticeFrame extends JFrame {
 		if(ProductLineConfiguration.statistics) {
 			numberOfUnpracticedWordsValueLabel.setText(Integer.toString(wordList.size()-index));
 		}
+	}
+	
+	private void sortWordList() {
+		Collections.sort(wordList, new Comparator<Vector<String>>(){
+		    public int compare(Vector<String> vector1, Vector<String> v2) {
+		        return vector1.get(0).compareTo(v2.get(0));
+		}});
 	}
 }
