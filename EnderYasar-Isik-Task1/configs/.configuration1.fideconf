@@ -1,6 +1,6 @@
 # Lists all features from the model with manual (first digit) and automatic (second digit) selection
 # 0 = deselected, 1 = selected, 2 = undefined
-21EnderYasarIsikTask1
+21Vokabeltrainer
 21Vokabelverwaltung
 12Lektionen
 21Vokabelabfrage
@@ -12,14 +12,15 @@
 22Quiz
 22Mehrfachauswahl
 12Tastatureingabe
-22Variable Abfragerichtung
+22VariableAbfragerichtung
 22Import
-22CSV Import
-22Datenbank Import
-22XML-Datei Import
+22CSVImport
+22DatenbankImport
+22XMLDateiImport
 22Export
-22CSV Export
-22Datenbank Export
-22XML-Datei Export
+22CSVExport
+22DatenbankExport
+22XMLDateiExport
 22Statistik
 12Drucken
+22Suchen

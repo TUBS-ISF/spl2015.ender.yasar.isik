@@ -12,14 +12,15 @@
 12Quiz
 12Mehrfachauswahl
 12Tastatureingabe
-12Variable Abfragerichtung
-11Import
-12CSV Import
-12Datenbank Import
-12XML-Datei Import
+12VariableAbfragerichtung
+21Import
+12CSVImport
+12DatenbankImport
+12XMLDateiImport
 21Export
-21CSV Export
-21Datenbank Export
-21XML-Datei Export
+21CSVExport
+21DatenbankExport
+21XMLDateiExport
 12Statistik
 12Drucken
+12Suchen
