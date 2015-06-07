@@ -2,7 +2,7 @@ package vocabularytrainer.core;
 
 public enum InquiryOrder {
 	//#ifdef Chronologisch
-//@	CHRONOLOGICAL,
+	CHRONOLOGICAL,
 	//#endif
 	//#ifdef Sortiert
 	SORTED
@@ -11,9 +11,9 @@ public enum InquiryOrder {
 
 	public static InquiryOrder getEnumeration(String order) {
 		//#ifdef Chronologisch
-//@		if(order.equals("Chronologisch")) {
-//@			return CHRONOLOGICAL;
-//@		}
+		if(order.equals("Chronologisch")) {
+			return CHRONOLOGICAL;
+		}
 		//#endif
 		//#ifdef Sortiert
 		if(order.equals("Sortiert")) {
