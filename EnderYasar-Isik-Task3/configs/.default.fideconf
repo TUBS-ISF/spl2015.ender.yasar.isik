@@ -1,0 +1,26 @@
+# Lists all features from the model with manual (first digit) and automatic (second digit) selection
+# 0 = deselected, 1 = selected, 2 = undefined
+21Vokabeltrainer
+21Vokabelverwaltung
+12Lektionen
+21Vokabelabfrage
+21Abfragereihenfolge
+22Chronologisch
+12Sortiert
+22Zufaellig
+21Abfragetyp
+22Quiz
+22Mehrfachauswahl
+12Tastatureingabe
+22VariableAbfragerichtung
+22Import
+22CSVImport
+22DatenbankImport
+22XMLDateiImport
+22Export
+22CSVExport
+22DatenbankExport
+22XMLDateiExport
+22Statistik
+22Drucken
+22Suchen

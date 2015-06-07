@@ -6,7 +6,7 @@
 					<description>
 						Die Vokabelverwaltung stellt das Basis-Feature dieser Softwareproduktlinie dar. Sie enhält elementare Funktionen für das Darstellen, Hinzufügen, Entfernen und Modifizieren von Vokabeln.
 					</description>
-					<feature name="Lektionen">
+					<feature abstract="true" name="Lektionen">
 						<description>
 							Unter Lektionen ist eine beliebige Ansammlung von Vokabeln zu verstehen. Sie werden verwendet, um Vokabeln (inhaltlich bzw. themenspezifisch) strukutiert zu gruppieren und zu Lektionen zusammenzufassen.
 						</description>
@@ -30,7 +30,7 @@
 								Die Vokabeln werden alphabetisch von A - Z oder umgekehrt sortiert und so abgefragt.
 							</description>
 						</feature>
-						<feature mandatory="true" name="Zufaellig">
+						<feature abstract="true" mandatory="true" name="Zufaellig">
 							<description>
 								Die Abfragereihenfolge der Vokabeln wird zufällig ermittelt.
 							</description>
@@ -40,12 +40,12 @@
 						<description>
 							Das Feature Abfragetyp ermöglicht unterschiedliche Verfahren wie die Vokabeln abgefragt werden können. Es ist besonders wichtig, dass unterschiedliche Verfahren an dieser Stelle angeboten werden, um den Lernerfolg zu erhöhen und dem Anwender mehr Vielfalt anzubieten.
 						</description>
-						<feature mandatory="true" name="Quiz">
+						<feature abstract="true" mandatory="true" name="Quiz">
 							<description>
 								Dieses Abfrageverfahren beinhaltet ein Wortspiel bei dem die Wörter lückenhaft dargestellt werden. Der Anwender muss die Lücken mit entsprechenden Buchstaben füllen.
 							</description>
 						</feature>
-						<feature mandatory="true" name="Mehrfachauswahl">
+						<feature abstract="true" mandatory="true" name="Mehrfachauswahl">
 							<description>
 								Anhand dieses Features ist der Anwender in der Lage, die abgefragten Vokabeln aus einer Liste von mehreren Antworten, welche auch falsche Antwortenoptionen beinhaltet, auszuwählen.
 							</description>
@@ -56,7 +56,7 @@
 							</description>
 						</feature>
 					</or>
-					<feature name="VariableAbfragerichtung">
+					<feature abstract="true" name="VariableAbfragerichtung">
 						<description>
 							Die variable Abfragerichtung stellt dem Nutzer die Funktion bereit, dass er zwischen den Abfragerichtungen SpracheA nach SpracheB und SpracheB nach SpracheA auswählen und auf diese Weise die Vokabelabfrage nach Belieben variieren kann.
 						</description>
@@ -71,7 +71,7 @@
 							Dieses Feature ermöglicht das Importieren von exportierten Vokabellisten und zusätzlichen Einstellungen im CSV-Dateiformat.
 						</description>
 					</feature>
-					<feature mandatory="true" name="DatenbankImport">
+					<feature abstract="true" mandatory="true" name="DatenbankImport">
 						<description>
 							Die in einer Datenbank hinterlegten Vokabellisten und zusätzlichen Einstellungen können mittels dieses Features aus der Datenbank extrahiert und in die Software eingebunden werden.
 						</description>
@@ -91,7 +91,7 @@
 							Mit CSV-Export können erfasste Vokabeln und zusätzliche Einstellungen im CSV-Dateiformat persistent gespeichert und als Datei abgelegt werden.
 						</description>
 					</feature>
-					<feature mandatory="true" name="DatenbankExport">
+					<feature abstract="true" mandatory="true" name="DatenbankExport">
 						<description>
 							Mit Hilfe dieses Features können erfasste Vokabeln und zusätzliche Einstellungen in einer Datenbank persistent hinterlegt werden.
 						</description>
@@ -107,7 +107,7 @@
 						Die Statistik beinhaltet Auswertungen in Form eines Punktesystems über die Anzahl der richtigen und falschen Antworten bei Vokabelabfragen. Statistiken können auf eine Vokabelliste oder auch auf Lektionen abgeschnitten sein.
 					</description>
 				</feature>
-				<feature name="Drucken">
+				<feature abstract="true" name="Drucken">
 					<description>
 						Dieses Feature stellt die Funktion zur Verfügung, dass erfasste Vokabeln in Form einer Liste augedruckt werden können.
 					</description>
