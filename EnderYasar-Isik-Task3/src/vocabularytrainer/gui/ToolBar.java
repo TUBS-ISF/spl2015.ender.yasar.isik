@@ -81,6 +81,15 @@ public class ToolBar {
 			}
 		});
 		//#endif
+		
+//		JButton executeButton = new JButton(new ImageIcon(getClass().getResource("/execute.png")));
+//		executeButton.setBorderPainted(false);
+//		mainToolBar.addSeparator();
+//		mainToolBar.add(executeButton);
+//		
+//		JButton configurationButton = new JButton(new ImageIcon(getClass().getResource("/configuration.png")));
+//		configurationButton.setBorderPainted(false);
+//		mainToolBar.add(configurationButton);
 	}
 	
 	public JToolBar getToolBar() {
