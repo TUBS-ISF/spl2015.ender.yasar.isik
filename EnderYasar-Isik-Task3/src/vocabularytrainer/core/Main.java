@@ -9,8 +9,6 @@ import javax.swing.WindowConstants;
 public class Main {
 
 	public static void main(String[] args) {
-		MainFrame mainFrame = new MainFrame();
-		
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
@@ -23,6 +21,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
+		MainFrame mainFrame = new MainFrame();
 		mainFrame.pack();
 		mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		mainFrame.setVisible(true);

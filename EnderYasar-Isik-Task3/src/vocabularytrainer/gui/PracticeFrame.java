@@ -14,10 +14,10 @@ import vocabularytrainer.core.InquiryDirection;
 import vocabularytrainer.core.InquiryOrder;
 import vocabularytrainer.core.WordList;
 //#ifdef DeutschFremdsprache
-import vocabularytrainer.gui.controller.CheckWordPairFromForeignToGermanListener;
+import vocabularytrainer.gui.controller.CheckWordPairFromGermanToForeignListener;
 //#endif
 //#ifdef FremdspracheDeutsch
-import vocabularytrainer.gui.controller.CheckWordPairFromGermanToForeignListener;
+import vocabularytrainer.gui.controller.CheckWordPairFromForeignToGermanListener;
 //#endif
 
 import net.miginfocom.layout.CC;
@@ -76,15 +76,15 @@ public class PracticeFrame extends JFrame {
 		foreignTextField = new JTextField();
 		
 		//#ifdef DeutschFremdsprache
-		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
-			foreignTextField.setText(wordList.getWordList().get(0).getForeignWord());
-			foreignTextField.setEnabled(false);
-		}
-		//#endif
-		//#ifdef FremdspracheDeutsch
 		if(inquiryDirection == InquiryDirection.GERMAN_TO_FOREIGN) {
 			germanTextField.setText(wordList.getWordList().get(0).getGermanWord());
 			germanTextField.setEnabled(false);
+		}
+		//#endif
+		//#ifdef FremdspracheDeutsch
+		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
+			foreignTextField.setText(wordList.getWordList().get(0).getForeignWord());
+			foreignTextField.setEnabled(false);
 		}
 		//#endif
 

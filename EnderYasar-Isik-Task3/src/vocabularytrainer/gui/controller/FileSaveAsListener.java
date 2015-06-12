@@ -44,8 +44,8 @@ public class FileSaveAsListener implements ActionListener {
 			fileChooser.showSaveDialog(fileChooser);
 			
 			FileExporter fileExporter = null;
-			//#ifdef CSVExport
 			String filename = null;
+			//#ifdef CSVExport
 			if(fileChooser.getFileFilter() == csvType) {
 				if(!fileChooser.getSelectedFile().getName().endsWith(".csv")) {
 					filename = fileChooser.getSelectedFile().getAbsolutePath() + ".csv";
