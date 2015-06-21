@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import com.opencsv.CSVWriter;
 
 import vocabularytrainer.core.WordList;
 import vocabularytrainer.core.WordPair;
 
 public class CSVFileExporter implements FileExporter {
+	
+	private String fileSuffix = "csv";
 
 	public void exportFile(WordList wordList, String filename) {
 		try {
@@ -30,6 +34,14 @@ public class CSVFileExporter implements FileExporter {
 		}
 		
 		return list;
+	}
+
+	public FileNameExtensionFilter getFileNameExtensionFilter() {
+		return new FileNameExtensionFilter("CSV-Dateiformat", fileSuffix);
+	}
+
+	public String getFileSuffix() {
+		return "." + fileSuffix;
 	}
 
 }

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -42,6 +44,14 @@ public class XMLFileImporter implements FileImporter {
 		}
 		
 		return wordList;
+	}
+
+	public FileNameExtensionFilter getFileNameExtensionFilter() {
+		return new FileNameExtensionFilter("XML-Dateiformat", "xml");
+	}
+
+	public String getFileSuffix() {
+		return ".xml";
 	}
 	
 }

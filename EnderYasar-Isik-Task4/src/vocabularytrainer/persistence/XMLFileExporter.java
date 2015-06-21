@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -15,6 +17,8 @@ import vocabularytrainer.core.WordList;
 import vocabularytrainer.core.WordPair;
 
 public class XMLFileExporter implements FileExporter {
+	
+	private String fileSuffix = "xml";
 	
 	public XMLFileExporter() {
 	}
@@ -46,5 +50,13 @@ public class XMLFileExporter implements FileExporter {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public FileNameExtensionFilter getFileNameExtensionFilter() {
+		return new FileNameExtensionFilter("XML-Dateiformat", fileSuffix);
+	}
+
+	public String getFileSuffix() {
+		return "." + fileSuffix;
 	}
 }

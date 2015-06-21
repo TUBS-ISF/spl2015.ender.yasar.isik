@@ -44,4 +44,10 @@ public class CSVFileImporter implements FileImporter {
 		return new FileNameExtensionFilter("CSV-Dateiformat", "csv");
 	}
 
+	public String getFileSuffix() {
+		return ".csv";
+	}
+	
+	
+
 }

@@ -2,20 +2,15 @@ package vocabularytrainer.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
 
-
-
-//#ifdef Import
 import vocabularytrainer.gui.controller.FileOpenListener;
-//#endif
-//#ifdef Export
 import vocabularytrainer.gui.controller.FileSaveAsListener;
-//#endif
 import vocabularytrainer.gui.controller.RemoveWordPairListener;
 import vocabularytrainer.persistence.FileExporter;
 import vocabularytrainer.persistence.FileImporter;
@@ -25,14 +20,14 @@ public class MenuBar {
 	private JMenuBar mainMenuBar;
 	private WordListTableModel tableModel;
 	private JTable wordListTable;
-	private FileImporter fileImporter;
-	private FileExporter fileExporter;
+	private List<FileImporter> fileImporterList;
+	private List<FileExporter> fileExporterList;
 	
-	public MenuBar(WordListTableModel tableModel, JTable wordListTable, FileImporter fileImporter, FileExporter fileExporter) {
+	public MenuBar(WordListTableModel tableModel, JTable wordListTable, List<FileImporter> fileImporterList, List<FileExporter> fileExporterList) {
 		this.tableModel = tableModel;
 		this.wordListTable = wordListTable;
-		this.fileImporter = fileImporter;
-		this.fileExporter = fileExporter;
+		this.fileImporterList = fileImporterList;
+		this.fileExporterList = fileExporterList;
 		mainMenuBar = new JMenuBar();
 		mainMenuBar.add(getFileMenu());
 		mainMenuBar.add(getEditMenu());
@@ -45,20 +40,20 @@ public class MenuBar {
 	private JMenu getFileMenu() {
 		JMenu fileMenu = new JMenu("Datei");
 		
-		if(fileImporter != null) {
+		if(fileImporterList != null) {
 			JMenuItem fileOpenItem = new JMenuItem("Vokabelliste öffnen");
 			fileMenu.add(fileOpenItem);
-			fileOpenItem.addActionListener(new FileOpenListener(tableModel));
+			fileOpenItem.addActionListener(new FileOpenListener(tableModel, fileImporterList));
 		}
-
-		if(fileExporter != null) {
+		
+		if(fileExporterList != null) {
 			JMenuItem fileSaveAsItem = new JMenuItem("Vokabelliste speichern als");
 			fileMenu.add(fileSaveAsItem);
-			fileSaveAsItem.addActionListener(new FileSaveAsListener(tableModel));
+			fileSaveAsItem.addActionListener(new FileSaveAsListener(tableModel, fileExporterList));
+			fileMenu.addSeparator();
 		}
 
 		JMenuItem shutdownProgramItem = new JMenuItem("Vokabeltrainer beenden");
-		fileMenu.addSeparator();
 		fileMenu.add(shutdownProgramItem);
 		shutdownProgramItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -1,11 +1,19 @@
 package vocabularytrainer.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import vocabularytrainer.core.WordList;
+import vocabularytrainer.persistence.FileExporter;
+import vocabularytrainer.persistence.FileImporter;
+import vocabularytrainer.persistence.CSVFileExporter;
+import vocabularytrainer.persistence.CSVFileImporter;
 import vocabularytrainer.persistence.XMLFileExporter;
 import vocabularytrainer.persistence.XMLFileImporter;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.miginfocom.swing.MigLayout;
@@ -22,12 +30,20 @@ public class MainFrame extends JFrame {
 		
 		JPanel panel = new JPanel(new MigLayout(new LC().wrap().insets("0")));
 		MainPanel mainPanel = new MainPanel(tableModel);
-		MenuBar mainMenuBar = new MenuBar(tableModel, mainPanel.getWordListTable(), new XMLFileImporter(), new XMLFileExporter());
-		ToolBar mainToolBar = new ToolBar(tableModel, mainPanel.getWordListTable(), new XMLFileImporter(), new XMLFileExporter());
+		
+		List<FileImporter> fileImporterList = new ArrayList<FileImporter>();
+		fileImporterList.add(new CSVFileImporter());
+		fileImporterList.add(new XMLFileImporter());
+		List<FileExporter> fileExporterList = new ArrayList<FileExporter>();
+		fileExporterList.add(new CSVFileExporter());
+		fileExporterList.add(new XMLFileExporter());
+		
+		MenuBar mainMenuBar = new MenuBar(tableModel, mainPanel.getWordListTable(), fileImporterList, fileExporterList);
+		ToolBar mainToolBar = new ToolBar(tableModel, mainPanel.getWordListTable(), fileImporterList, fileExporterList);
 		
 		panel.add(mainMenuBar.getMenuBar(), new CC().grow().pushX());
 		panel.add(mainToolBar.getToolBar(), new CC().grow().pushX());
-		panel.add(mainPanel.getMainPanel(), new CC().grow().gapLeft("10").gapRight("10").gapBottom("5"));
+		panel.add(mainPanel.getMainPanel(), new CC().grow().gapLeft("5"));
 		
 		setContentPane(panel);
 		setLocationRelativeTo(null);

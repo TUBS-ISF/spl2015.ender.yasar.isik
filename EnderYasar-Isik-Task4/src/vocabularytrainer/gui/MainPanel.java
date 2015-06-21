@@ -31,7 +31,7 @@ public class MainPanel {
 		this.tableModel = tableModel;
 		listPanel = new JPanel(new MigLayout());
 		
-		listPanel.add(getTablePanel(), new CC().dockWest().gapX("0", "5").gapY("5", "5"));
+		listPanel.add(getTablePanel(), new CC().dockWest().gapX("0", "5").gapY("5", "0"));
 		listPanel.add(getConfigurationPanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
 		listPanel.add(getStartPracticePanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
 	}

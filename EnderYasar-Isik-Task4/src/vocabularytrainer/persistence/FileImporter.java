@@ -8,5 +8,6 @@ public interface FileImporter {
 
 	public abstract WordList importFile(String filename);
 	public abstract FileNameExtensionFilter getFileNameExtensionFilter();
+	public abstract String getFileSuffix();
 
 }
