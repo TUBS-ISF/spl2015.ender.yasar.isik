@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.jdom2.Attribute;
@@ -52,8 +53,9 @@ public class XMLFileExporter implements FileExporter {
 		}
 	}
 
-	public FileNameExtensionFilter getFileNameExtensionFilter() {
-		return new FileNameExtensionFilter("XML-Dateiformat", fileSuffix);
+	public FileFilter getFileFilter() {
+		FileFilter fileFilter = new FileNameExtensionFilter("XML-Dateiformat", fileSuffix);
+		return fileFilter;
 	}
 
 	public String getFileSuffix() {

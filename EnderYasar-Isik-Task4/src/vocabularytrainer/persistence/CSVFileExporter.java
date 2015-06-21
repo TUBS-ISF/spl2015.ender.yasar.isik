@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.opencsv.CSVWriter;
@@ -36,8 +37,9 @@ public class CSVFileExporter implements FileExporter {
 		return list;
 	}
 
-	public FileNameExtensionFilter getFileNameExtensionFilter() {
-		return new FileNameExtensionFilter("CSV-Dateiformat", fileSuffix);
+	public FileFilter getFileFilter() {
+		FileFilter fileFilter = new FileNameExtensionFilter("CSV-Dateiformat", fileSuffix);
+		return fileFilter;
 	}
 
 	public String getFileSuffix() {

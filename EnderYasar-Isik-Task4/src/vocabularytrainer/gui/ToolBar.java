@@ -63,7 +63,6 @@ public class ToolBar {
 		mainToolBar.add(removeWordButton);
 		removeWordButton.addActionListener(new RemoveWordPairListener(wordListTable, tableModel));
 
-		//#ifdef Suchen
 		JButton searchWordButton = new JButton(new ImageIcon(getClass().getResource("/search.png")));
 		searchWordButton.setBorderPainted(false);
 		mainToolBar.add(searchWordButton);
@@ -73,7 +72,6 @@ public class ToolBar {
 				SearchDialog searchDialog = new SearchDialog(tableModel, wordListTable);
 			}
 		});
-		//#endif
 		
 //		JButton executeButton = new JButton(new ImageIcon(getClass().getResource("/execute.png")));
 //		executeButton.setBorderPainted(false);

@@ -2,6 +2,8 @@ package vocabularytrainer.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,6 +16,9 @@ import javax.swing.border.TitledBorder;
 
 import vocabularytrainer.core.InquiryDirection;
 import vocabularytrainer.core.InquiryOrder;
+import vocabularytrainer.core.InquiryOrderChronological;
+import vocabularytrainer.core.InquiryOrderSorted;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.miginfocom.swing.MigLayout;
@@ -26,11 +31,18 @@ public class MainPanel {
 	private JComboBox<String> orderComboBox;
 	private JComboBox<String> directionComboBox;
 	private JComboBox<String> typeComboBox;
+	private List<InquiryOrder> inquiryOrderList;
 	
 	public MainPanel(WordListTableModel tableModel) {
 		this.tableModel = tableModel;
-		listPanel = new JPanel(new MigLayout());
 		
+		// Aktivierung der Abfragereihenfolge Plugins
+		inquiryOrderList = new ArrayList<InquiryOrder>();
+		inquiryOrderList.add(new InquiryOrderChronological());
+		inquiryOrderList.add(new InquiryOrderSorted());
+//		inquiryOrderList = null;
+		
+		listPanel = new JPanel(new MigLayout());
 		listPanel.add(getTablePanel(), new CC().dockWest().gapX("0", "5").gapY("5", "0"));
 		listPanel.add(getConfigurationPanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
 		listPanel.add(getStartPracticePanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
@@ -53,13 +65,12 @@ public class MainPanel {
 		
 		JLabel orderLabel = new JLabel("Abfragereihenfolge:");
 		orderComboBox = new JComboBox<String>();
-		//#ifdef Chronologisch
-		orderComboBox.addItem("Chronologisch");
-		//#endif
-		//#ifdef Sortiert
-		orderComboBox.addItem("Sortiert");
-		//#endif
-		
+		if(inquiryOrderList != null) {
+			for(InquiryOrder order : inquiryOrderList) {
+				orderComboBox.addItem(order.getInquiryOrderLabel());
+			}
+		}
+
 		JLabel directionLabel = new JLabel("Abfragerichtung");
 		directionComboBox = new JComboBox<String>();
 		//#ifdef DeutschFremdsprache
@@ -90,7 +101,6 @@ public class MainPanel {
 	
 	private JPanel getStartPracticePanel() {
 		JPanel startPracticePanel = new JPanel(new MigLayout());
-		
 		JButton startPracticeButton = new JButton("Starten");
 		
 		startPracticePanel.add(startPracticeButton, new CC().push().width(":120:").alignX("center"));
@@ -104,7 +114,15 @@ public class MainPanel {
 				if(tableModel.getRowCount() == 0) {
 					JOptionPane.showMessageDialog(null, "Es sind keine Vokabeln in der Liste hinterlegt.", "Warnung", JOptionPane.WARNING_MESSAGE);
 				} else {
-					PracticeFrame practiceFrame = new PracticeFrame(tableModel.getData(), InquiryOrder.getEnumeration(orderComboBox.getSelectedItem().toString()), InquiryDirection.getEnumeration(directionComboBox.getSelectedItem().toString()));
+					InquiryOrder inquiryOrder = null;
+					if(inquiryOrderList != null) {
+						for(InquiryOrder order : inquiryOrderList) {
+							if(orderComboBox.getSelectedItem().toString().equals(order.getInquiryOrderLabel())) {
+								inquiryOrder = order;
+							}
+						}
+					}
+					PracticeFrame practiceFrame = new PracticeFrame(tableModel.getData(), inquiryOrder, InquiryDirection.getEnumeration(directionComboBox.getSelectedItem().toString()));
 				}
 			}
 		});

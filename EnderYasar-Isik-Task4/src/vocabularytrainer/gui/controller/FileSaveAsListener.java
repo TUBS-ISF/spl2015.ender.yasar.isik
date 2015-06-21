@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileFilter;
 
 import vocabularytrainer.gui.WordListTableModel;
 import vocabularytrainer.persistence.FileExporter;
@@ -27,23 +26,20 @@ public class FileSaveAsListener implements ActionListener {
 		} else {
 			JFileChooser fileChooser = new JFileChooser();
 			for(FileExporter fileExporter : fileExporterList) {
-				fileChooser.addChoosableFileFilter(fileExporter.getFileNameExtensionFilter());
+				fileChooser.addChoosableFileFilter(fileExporter.getFileFilter());
 			}
 			fileChooser.setAcceptAllFileFilterUsed(false);
 			fileChooser.showSaveDialog(fileChooser);
 			
 			String filename = null;
 			for(FileExporter fileExporter : fileExporterList) {
-				FileFilter fileType = fileExporter.getFileNameExtensionFilter();
-				//Geht nicht!!!
-				if(fileChooser.getFileFilter() == fileType) {
+				if(fileChooser.getFileFilter().getDescription().equals(fileExporter.getFileFilter().getDescription())) {
 					if(!fileChooser.getSelectedFile().getName().endsWith(fileExporter.getFileSuffix())) {
 						filename = fileChooser.getSelectedFile().getAbsolutePath() + fileExporter.getFileSuffix();
 					} else {
 						filename = fileChooser.getSelectedFile().getAbsolutePath();
 					}
 					fileExporter.exportFile(tableModel.getData(), filename);
-					System.out.println(filename);
 				}
 			}
 		}		

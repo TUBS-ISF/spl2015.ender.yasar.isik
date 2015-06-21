@@ -1,13 +1,13 @@
 package vocabularytrainer.persistence;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileFilter;
 
 import vocabularytrainer.core.WordList;
 
 public interface FileExporter {
 	
-	public abstract void exportFile(WordList wordList, String filename);
-	public abstract FileNameExtensionFilter getFileNameExtensionFilter();
-	public abstract String getFileSuffix();
+	public void exportFile(WordList wordList, String filename);
+	public FileFilter getFileFilter();
+	public String getFileSuffix();
 	
 }

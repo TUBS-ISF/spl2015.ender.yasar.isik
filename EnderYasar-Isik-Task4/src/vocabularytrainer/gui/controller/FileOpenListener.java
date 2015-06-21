@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileFilter;
 
 import vocabularytrainer.core.WordPair;
 import vocabularytrainer.gui.WordListTableModel;
@@ -26,8 +25,7 @@ public class FileOpenListener implements ActionListener {
 		FileImporter fileImporter = null;
 		
 		for(FileImporter importer : fileImporterList) {
-			FileFilter fileType = importer.getFileNameExtensionFilter();
-			fileChooser.addChoosableFileFilter(fileType);
+			fileChooser.addChoosableFileFilter(importer.getFileFilter());
 		}
 		fileChooser.setAcceptAllFileFilterUsed(false);
 		fileChooser.showOpenDialog(fileChooser);

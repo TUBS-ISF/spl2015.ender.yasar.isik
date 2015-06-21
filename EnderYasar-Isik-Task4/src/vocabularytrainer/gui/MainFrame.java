@@ -7,10 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import vocabularytrainer.core.WordList;
-import vocabularytrainer.persistence.FileExporter;
-import vocabularytrainer.persistence.FileImporter;
 import vocabularytrainer.persistence.CSVFileExporter;
 import vocabularytrainer.persistence.CSVFileImporter;
+import vocabularytrainer.persistence.FileExporter;
+import vocabularytrainer.persistence.FileImporter;
 import vocabularytrainer.persistence.XMLFileExporter;
 import vocabularytrainer.persistence.XMLFileImporter;
 
@@ -28,16 +28,18 @@ public class MainFrame extends JFrame {
 		WordList wordList = new WordList();
 		WordListTableModel tableModel = new WordListTableModel(wordList);
 		
-		JPanel panel = new JPanel(new MigLayout(new LC().wrap().insets("0")));
-		MainPanel mainPanel = new MainPanel(tableModel);
-		
+		// Aktivierung der Import und Export Plugins - Wenn ein Import aktiviert wird, dann muss auch ein Export aktiviert werden.
 		List<FileImporter> fileImporterList = new ArrayList<FileImporter>();
 		fileImporterList.add(new CSVFileImporter());
 		fileImporterList.add(new XMLFileImporter());
+//		List<FileImporter> fileImporterList = null;
 		List<FileExporter> fileExporterList = new ArrayList<FileExporter>();
 		fileExporterList.add(new CSVFileExporter());
 		fileExporterList.add(new XMLFileExporter());
+//		List<FileExporter> fileExporterList = null;
 		
+		JPanel panel = new JPanel(new MigLayout(new LC().wrap().insets("0")));
+		MainPanel mainPanel = new MainPanel(tableModel);
 		MenuBar mainMenuBar = new MenuBar(tableModel, mainPanel.getWordListTable(), fileImporterList, fileExporterList);
 		ToolBar mainToolBar = new ToolBar(tableModel, mainPanel.getWordListTable(), fileImporterList, fileExporterList);
 		

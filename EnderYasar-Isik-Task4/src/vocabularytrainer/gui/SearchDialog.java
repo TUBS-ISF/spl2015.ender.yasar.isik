@@ -1,4 +1,3 @@
-//#ifdef Suchen
 package vocabularytrainer.gui;
 
 import java.awt.event.ActionEvent;
@@ -12,6 +11,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import vocabularytrainer.gui.controller.SearchWordPairListener;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.miginfocom.swing.MigLayout;
@@ -58,4 +58,3 @@ public class SearchDialog extends JDialog {
 		return panel;
 	}
 }
-//#endif

@@ -1,4 +1,3 @@
-//#ifdef Suchen
 package vocabularytrainer.gui.controller;
 
 import java.awt.Component;
@@ -40,6 +39,5 @@ public class SearchWordPairListener implements ActionListener {
 		JDialog dialog = (JDialog) SwingUtilities.getRoot(component);
 		dialog.dispose();
 	}
-
+	
 }
-//#endif

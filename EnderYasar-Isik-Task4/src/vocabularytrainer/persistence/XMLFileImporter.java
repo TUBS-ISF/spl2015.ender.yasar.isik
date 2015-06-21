@@ -46,7 +46,7 @@ public class XMLFileImporter implements FileImporter {
 		return wordList;
 	}
 
-	public FileNameExtensionFilter getFileNameExtensionFilter() {
+	public FileNameExtensionFilter getFileFilter() {
 		return new FileNameExtensionFilter("XML-Dateiformat", "xml");
 	}
 
