@@ -2,7 +2,7 @@
 # 0 = deselected, 1 = selected, 2 = undefined
 21Vokabeltrainer
 21Vokabelverwaltung
-22Lektionen
+12Lektionen
 21Vokabelabfrage
 21Abfragereihenfolge
 12Chronologisch
@@ -24,5 +24,5 @@
 22DatenbankExport
 22XMLExport
 22Statistik
-22Drucken
+12Drucken
 22Suchen
