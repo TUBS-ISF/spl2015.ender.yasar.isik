@@ -14,40 +14,36 @@ import javax.swing.SwingUtilities;
 import vocabularytrainer.core.InquiryOrder; 
 import vocabularytrainer.core.Statistics; 
 
-public  class  CheckWordPairFromForeignToGermanListener  implements ActionListener {
+public   class  CheckWordPairFromForeignToGermanListener  implements ActionListener {
 	
 	
-	private InquiryOrder inquiryOrder;
+	private InquiryOrder inquiryOrder  ;
 
 	
-	private Statistics statistics;
+	private JTextField germanTextField  ;
 
 	
-	private JTextField germanTextField;
+	private JTextField foreignTextField  ;
 
 	
-	private JTextField foreignTextField;
+	private JTextField correctnessField  ;
 
 	
-	private JTextField correctnessField;
+	private JLabel unpracticedWordsValueLabel  ;
 
 	
-	private JLabel unpracticedWordsValueLabel;
+	private JLabel correctPracticesValueLabel  ;
 
 	
-	private JLabel correctPracticesValueLabel;
+	private JLabel incorrectPracticesValueLabel  ;
 
 	
-	private JLabel incorrectPracticesValueLabel;
-
-	
-	private JLabel correctnessRateValueLabel;
+	private JLabel correctnessRateValueLabel  ;
 
 	
 
-	public CheckWordPairFromForeignToGermanListener(JTextField germanTextField, JTextField foreignTextField, JTextField correctnessField, JLabel unpracticedWordsValueLabel, JLabel correctPracticesValueLabel, JLabel incorrectPracticesValueLabel, JLabel correctnessRateValueLabel, InquiryOrder inquiryOrder, Statistics statistics) {
+	public CheckWordPairFromForeignToGermanListener(JTextField germanTextField, JTextField foreignTextField, JTextField correctnessField, JLabel unpracticedWordsValueLabel, JLabel correctPracticesValueLabel, JLabel incorrectPracticesValueLabel, JLabel correctnessRateValueLabel, InquiryOrder inquiryOrder) {
 		this.inquiryOrder = inquiryOrder;
-		this.statistics = statistics;
 		this.germanTextField = germanTextField;
 		this.foreignTextField = foreignTextField;
 		this.correctnessField = correctnessField;
@@ -59,7 +55,7 @@ public  class  CheckWordPairFromForeignToGermanListener  implements ActionListen
 
 	
 	
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed  (ActionEvent e) {
 		if(germanTextField.getText().equals(inquiryOrder.getNextWordPair().getGermanWord())) {
 			correctnessField.setBackground(Color.GREEN);
 			if(statistics != null) {
@@ -87,6 +83,23 @@ public  class  CheckWordPairFromForeignToGermanListener  implements ActionListen
 			unpracticedWordsValueLabel.setText(Integer.toString(statistics.getNumberOfWords()-statistics.getNumberOfPracticedWords()));
 			correctnessRateValueLabel.setText(String.format("%.2f %%", statistics.getCorrectnessRate()));
 		}
+	}
+
+	
+	private Statistics statistics;
+
+	
+
+	public CheckWordPairFromForeignToGermanListener(JTextField germanTextField, JTextField foreignTextField, JTextField correctnessField, JLabel unpracticedWordsValueLabel, JLabel correctPracticesValueLabel, JLabel incorrectPracticesValueLabel, JLabel correctnessRateValueLabel, InquiryOrder inquiryOrder, Statistics statistics) {
+		this.inquiryOrder = inquiryOrder;
+		this.statistics = statistics;
+		this.germanTextField = germanTextField;
+		this.foreignTextField = foreignTextField;
+		this.correctnessField = correctnessField;
+		this.unpracticedWordsValueLabel = unpracticedWordsValueLabel;
+		this.correctPracticesValueLabel = correctPracticesValueLabel;
+		this.incorrectPracticesValueLabel = incorrectPracticesValueLabel;
+		this.correctnessRateValueLabel = correctnessRateValueLabel;
 	}
 
 

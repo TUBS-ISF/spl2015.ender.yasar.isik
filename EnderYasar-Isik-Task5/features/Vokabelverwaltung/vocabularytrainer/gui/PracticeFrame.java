@@ -12,8 +12,8 @@ import javax.swing.border.TitledBorder;
 
 import vocabularytrainer.core.InquiryDirection;
 import vocabularytrainer.core.InquiryOrder;
-import vocabularytrainer.core.RealStatistics;
-import vocabularytrainer.core.Statistics;
+//import vocabularytrainer.core.RealStatistics;
+//import vocabularytrainer.core.Statistics;
 import vocabularytrainer.core.WordList;
 import vocabularytrainer.gui.controller.CheckWordPairFromGermanToForeignListener;
 import vocabularytrainer.gui.controller.CheckWordPairFromForeignToGermanListener;
@@ -37,7 +37,6 @@ public class PracticeFrame extends JFrame {
 	private JTextField foreignTextField;
 	private JTextField correctnessField;
 	private JPanel panel;
-	private Statistics statistics;
 	
 	public PracticeFrame(WordList wordList, InquiryOrder inquiryOrder, InquiryDirection inquiryDirection) {
 		super();
@@ -47,16 +46,10 @@ public class PracticeFrame extends JFrame {
 		this.inquiryDirection = inquiryDirection;
 		this.inquiryOrder = inquiryOrder;
 		this.inquiryOrder.setWordList(wordList);
-		// Aktivierung des Statistik Plugins
-		this.statistics = new RealStatistics(wordList.getWordList().size());
-//		this.statistics = null;
 
 		panel = new JPanel(new MigLayout(new LC().wrap().alignX("center")));
 		panel.add(getTranslationPanel(), new CC().growX());
 		panel.add(getCorrectnessPanel(), new CC().growX());
-		if(statistics != null) {
-			panel.add(getStatisticsPanel(), new CC().growX());
-		}
 		panel.add(getButtonsPanel(), new CC().growX());
 		
 		setContentPane(panel);
@@ -107,36 +100,6 @@ public class PracticeFrame extends JFrame {
 		return correctnessPanel;
 	}
 	
-	private JPanel getStatisticsPanel() {
-		JPanel statisticsPanel = new JPanel(new MigLayout(new LC().wrapAfter(2)));
-		JLabel wordsLabel = new JLabel("Gesamtanzahl Vokabeln:");
-		wordsValueLable = new JLabel(Integer.toString(wordList.getWordList().size()));
-		JLabel unpracticedWordsLabel = new JLabel("Verbleibende Anzahl an Vokabeln:");
-		unpracticedWordsValueLabel = new JLabel(Integer.toString(wordList.getWordList().size()));
-		JLabel correctPracticesLabel = new JLabel("Anzahl richtiger Antworten:");
-		correctPracticesValueLabel = new JLabel("0");
-		JLabel incorrectPracticesLabel = new JLabel("Anzahl falscher Antworten:");
-		incorrectPracticesValueLabel = new JLabel("0");
-		JLabel correctnessRateLabel = new JLabel("Bewertung:");
-		correctnessRateValueLabel = new JLabel("100,00 %");
-		
-		statisticsPanel.add(wordsLabel);
-		statisticsPanel.add(wordsValueLable, new CC().pushX().alignX("right"));
-		statisticsPanel.add(unpracticedWordsLabel);
-		statisticsPanel.add(unpracticedWordsValueLabel, new CC().pushX().alignX("right"));
-		statisticsPanel.add(correctPracticesLabel);
-		statisticsPanel.add(correctPracticesValueLabel, new CC().pushX().alignX("right"));
-		statisticsPanel.add(incorrectPracticesLabel);
-		statisticsPanel.add(incorrectPracticesValueLabel, new CC().pushX().alignX("right"));
-		statisticsPanel.add(correctnessRateLabel);
-		statisticsPanel.add(correctnessRateValueLabel, new CC().pushX().alignX("right"));
-		
-		TitledBorder border = new TitledBorder("Statistik");
-		statisticsPanel.setBorder(border);
-
-		return statisticsPanel;
-	}
-	
 	private JPanel getButtonsPanel() {
 		JPanel buttonPanel = new JPanel(new MigLayout(new LC().alignX("center")));
 		
@@ -144,11 +107,11 @@ public class PracticeFrame extends JFrame {
 		buttonPanel.add(nextWordButton);
 		// DeutschFremdsprache
 		if(inquiryDirection == InquiryDirection.GERMAN_TO_FOREIGN) {
-			nextWordButton.addActionListener(new CheckWordPairFromGermanToForeignListener(germanTextField, foreignTextField, correctnessField, unpracticedWordsValueLabel, correctPracticesValueLabel, incorrectPracticesValueLabel, correctnessRateValueLabel, inquiryOrder, statistics));
+			nextWordButton.addActionListener(new CheckWordPairFromGermanToForeignListener(germanTextField, foreignTextField, correctnessField, unpracticedWordsValueLabel, correctPracticesValueLabel, incorrectPracticesValueLabel, correctnessRateValueLabel, inquiryOrder));
 		}
 		// FremdspracheDeutsch
 		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
-			nextWordButton.addActionListener(new CheckWordPairFromForeignToGermanListener(germanTextField, foreignTextField, correctnessField, unpracticedWordsValueLabel, correctPracticesValueLabel, incorrectPracticesValueLabel, correctnessRateValueLabel, inquiryOrder, statistics));
+			nextWordButton.addActionListener(new CheckWordPairFromForeignToGermanListener(germanTextField, foreignTextField, correctnessField, unpracticedWordsValueLabel, correctPracticesValueLabel, incorrectPracticesValueLabel, correctnessRateValueLabel, inquiryOrder));
 		}
 		
 		JButton cancelButton = new JButton("Abbrechen");

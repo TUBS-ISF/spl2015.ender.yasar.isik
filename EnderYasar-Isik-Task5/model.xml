@@ -16,7 +16,7 @@
 					<description>
 						Dieses Feature beinhaltet das Abfragesystem. Der Vokabeltrainer muss in der Lage sein, die von dem Nutzer hinterlegten Vokabeln (systematisch) abzufragen.
 					</description>
-					<or abstract="true" mandatory="true" name="Abfragereihenfolge">
+					<or mandatory="true" name="Abfragereihenfolge">
 						<description>
 							Für eine systematische und Lernerfolg-bringende Abfrage von Vokabeln müssen die Vokabeln in unterschiedlichen Reihenfolgen abgefragt werden. Dafür stellt dieses Feature unterschiedliche Funktionalitäten bereit.
 						</description>

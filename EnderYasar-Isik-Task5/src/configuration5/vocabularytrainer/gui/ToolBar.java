@@ -2,45 +2,61 @@ package vocabularytrainer.gui;
 
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener; 
-import java.util.List; 
 
 import javax.swing.ImageIcon; 
 import javax.swing.JButton; 
 import javax.swing.JTable; 
 import javax.swing.JToolBar; 
+import vocabularytrainer.gui.controller.RemoveWordPairListener; 
+
+import java.util.ArrayList; 
+import java.util.List; 
 
 import vocabularytrainer.gui.controller.FileOpenListener; 
-import vocabularytrainer.gui.controller.FileSaveAsListener; 
-import vocabularytrainer.gui.controller.RemoveWordPairListener; 
-import vocabularytrainer.persistence.FileExporter; 
 import vocabularytrainer.persistence.FileImporter; 
 
-public  class  ToolBar {
+import vocabularytrainer.persistence.CSVFileImporter; 
+
+import vocabularytrainer.persistence.XMLFileImporter; 
+import vocabularytrainer.gui.controller.FileSaveAsListener; 
+import vocabularytrainer.persistence.FileExporter; 
+
+import vocabularytrainer.persistence.CSVFileExporter; 
+
+import vocabularytrainer.persistence.XMLFileExporter; 
+
+public   class  ToolBar {
 	
 	
-	private JToolBar mainToolBar;
+	private JToolBar mainToolBar  ;
 
 	
+	private WordListTableModel tableModel;
+
 	
-	public ToolBar(final WordListTableModel tableModel, final JTable wordListTable) {
+	private JTable wordListTable;
+
+	
+
+	public ToolBar  (WordListTableModel tableModel, JTable wordListTable) {	
+		this.tableModel = tableModel;
+		this.wordListTable = wordListTable;
 		mainToolBar = new JToolBar();
 		mainToolBar.setFloatable(false);
-		
-		if(fileImporterList != null) {
-			JButton fileOpenButton = new JButton(new ImageIcon(getClass().getResource("/folder.png")));
-			fileOpenButton.setBorderPainted(false);
-			mainToolBar.add(fileOpenButton);
-			fileOpenButton.addActionListener(new FileOpenListener(tableModel, fileImporterList));
-		}
-		
-		if(fileExporterList != null) {
-			JButton fileSaveAsButton = new JButton(new ImageIcon(getClass().getResource("/save-as.png")));
-			fileSaveAsButton.setBorderPainted(false);
-			mainToolBar.add(fileSaveAsButton);
-			fileSaveAsButton.addActionListener(new FileSaveAsListener(tableModel, fileExporterList));
-			mainToolBar.addSeparator();
-		}
+		setToolBar();
+	
+		fileImporterList.add(new XMLFileImporter());
+	
+	
+		fileExporterList.add(new CSVFileExporter());
+	
+		fileExporterList.add(new XMLFileExporter());
+	
+	}
 
+	
+	
+	 private void  setToolBar__wrappee__Vokabelverwaltung() {
 		JButton addWordButton = new JButton(new ImageIcon(getClass().getResource("/add.png")));
 		addWordButton.setBorderPainted(false);
 		mainToolBar.add(addWordButton);
@@ -65,7 +81,40 @@ public  class  ToolBar {
 		removeWordButton.setBorderPainted(false);
 		mainToolBar.add(removeWordButton);
 		removeWordButton.addActionListener(new RemoveWordPairListener(wordListTable, tableModel));
+	}
 
+	
+	
+	 private void  setToolBar__wrappee__Import  () {
+		setToolBar__wrappee__Vokabelverwaltung();
+		JButton fileOpenButton = new JButton(new ImageIcon(getClass().getResource("/folder.png")));
+		fileOpenButton.setBorderPainted(false);
+		mainToolBar.add(fileOpenButton);
+		fileOpenButton.addActionListener(new FileOpenListener(tableModel, fileImporterList));
+	}
+
+	
+	
+	 private void  setToolBar__wrappee__CSVImport  () {
+		fileImporterList.add(new CSVFileImporter());
+		setToolBar__wrappee__Import();
+	}
+
+	
+	
+	 private void  setToolBar__wrappee__Export() {
+		setToolBar__wrappee__CSVImport();
+		JButton fileSaveAsButton = new JButton(new ImageIcon(getClass().getResource("/save-as.png")));
+		fileSaveAsButton.setBorderPainted(false);
+		mainToolBar.add(fileSaveAsButton);
+		fileSaveAsButton.addActionListener(new FileSaveAsListener(tableModel, fileExporterList));
+	}
+
+	
+	
+	private void setToolBar() {
+		setToolBar__wrappee__Export();
+		
 		JButton searchWordButton = new JButton(new ImageIcon(getClass().getResource("/search.png")));
 		searchWordButton.setBorderPainted(false);
 		mainToolBar.add(searchWordButton);
@@ -75,15 +124,6 @@ public  class  ToolBar {
 				SearchDialog searchDialog = new SearchDialog(tableModel, wordListTable);
 			}
 		});
-		
-//		JButton executeButton = new JButton(new ImageIcon(getClass().getResource("/execute.png")));
-//		executeButton.setBorderPainted(false);
-//		mainToolBar.addSeparator();
-//		mainToolBar.add(executeButton);
-//		
-//		JButton configurationButton = new JButton(new ImageIcon(getClass().getResource("/configuration.png")));
-//		configurationButton.setBorderPainted(false);
-//		mainToolBar.add(configurationButton);
 	}
 
 	
@@ -91,6 +131,14 @@ public  class  ToolBar {
 	public JToolBar getToolBar() {
 		return mainToolBar;
 	}
+
+	
+	
+	private List<FileImporter> fileImporterList  = new ArrayList<FileImporter>();
+
+	
+	
+	private List<FileExporter> fileExporterList  = new ArrayList<FileExporter>();
 
 
 }

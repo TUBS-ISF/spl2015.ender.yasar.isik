@@ -16,44 +16,69 @@ import javax.swing.border.TitledBorder;
 
 import vocabularytrainer.core.InquiryDirection; 
 import vocabularytrainer.core.InquiryOrder; 
-import vocabularytrainer.core.InquiryOrderChronological; 
-import vocabularytrainer.core.InquiryOrderSorted; 
 
 import net.miginfocom.layout.CC; 
 import net.miginfocom.layout.LC; 
 import net.miginfocom.swing.MigLayout; 
+import vocabularytrainer.core.InquiryOrderChronological; 
+//import vocabularytrainer.core.InquiryOrderChronological;
+import vocabularytrainer.core.InquiryOrderSorted; 
 
-public  class  MainPanel {
+public   class  MainPanel {
 	
 	
-	private JPanel listPanel;
-
-	
-	private JTable wordListTable;
-
-	
-	private WordListTableModel tableModel;
+	private JPanel listPanel  ;
 
 	
-	private JComboBox<String> orderComboBox;
+	private JTable wordListTable  ;
 
 	
-	private JComboBox<String> directionComboBox;
+	private WordListTableModel tableModel  ;
 
 	
-	private JComboBox<String> typeComboBox;
+	private JComboBox<String> orderComboBox  ;
 
 	
-	private List<InquiryOrder> inquiryOrderList;
+	private JComboBox<String> directionComboBox  ;
+
+	
+	private JComboBox<String> typeComboBox  ;
+
+	
+	private List<InquiryOrder> inquiryOrderList  ;
 
 	
 	
-	public MainPanel(WordListTableModel tableModel) {
+	public MainPanel  (WordListTableModel tableModel) {
 		this.tableModel = tableModel;
 		
 		// Aktivierung der Abfragereihenfolge Plugins
 		inquiryOrderList = new ArrayList<InquiryOrder>();
+//		inquiryOrderList.add(new InquiryOrderChronological());
+//		inquiryOrderList.add(new InquiryOrderSorted());
+//		inquiryOrderList = null;
+		
+		listPanel = new JPanel(new MigLayout());
+		listPanel.add(getTablePanel(), new CC().dockWest().gapX("0", "5").gapY("5", "0"));
+		listPanel.add(getConfigurationPanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
+		listPanel.add(getStartPracticePanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
+	
+		this.tableModel = tableModel;
+		
+		// Aktivierung der Abfragereihenfolge Plugins
+//		inquiryOrderList = new ArrayList<InquiryOrder>();
 		inquiryOrderList.add(new InquiryOrderChronological());
+		
+		listPanel = new JPanel(new MigLayout());
+		listPanel.add(getTablePanel(), new CC().dockWest().gapX("0", "5").gapY("5", "0"));
+		listPanel.add(getConfigurationPanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
+		listPanel.add(getStartPracticePanel(), new CC().dockNorth().gapX("5", "0").gapY("0", "0"));
+	
+		this.tableModel = tableModel;
+		
+		// Aktivierung der Abfragereihenfolge Plugins
+//		inquiryOrderList = new ArrayList<InquiryOrder>();
+//		inquiryOrderList.add(new InquiryOrderChronological());
 		inquiryOrderList.add(new InquiryOrderSorted());
 //		inquiryOrderList = null;
 		
@@ -65,13 +90,13 @@ public  class  MainPanel {
 
 	
 	
-	public JPanel getMainPanel() {
+	public JPanel getMainPanel  () {
 		return listPanel;
 	}
 
 	
 	
-	private JScrollPane getTablePanel() {
+	private JScrollPane getTablePanel  () {
 		wordListTable = new JTable();
 		wordListTable.setModel(tableModel);
 		JScrollPane tablePanel = new JScrollPane(wordListTable);
@@ -81,7 +106,7 @@ public  class  MainPanel {
 
 	
 	
-	private JPanel getConfigurationPanel() {
+	private JPanel getConfigurationPanel  () {
 		JPanel configurationPanel = new JPanel(new MigLayout(new LC().wrap()));
 		
 		JLabel orderLabel = new JLabel("Abfragereihenfolge:");
@@ -155,7 +180,7 @@ public  class  MainPanel {
 
 	
 	
-	public JTable getWordListTable() {
+	public JTable getWordListTable  () {
 		return wordListTable;
 	}
 

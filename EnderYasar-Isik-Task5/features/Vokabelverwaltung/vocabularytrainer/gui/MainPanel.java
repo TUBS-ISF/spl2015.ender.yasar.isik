@@ -16,8 +16,8 @@ import javax.swing.border.TitledBorder;
 
 import vocabularytrainer.core.InquiryDirection;
 import vocabularytrainer.core.InquiryOrder;
-import vocabularytrainer.core.InquiryOrderChronological;
-import vocabularytrainer.core.InquiryOrderSorted;
+//import vocabularytrainer.core.InquiryOrderChronological;
+//import vocabularytrainer.core.InquiryOrderSorted;
 
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
@@ -38,8 +38,8 @@ public class MainPanel {
 		
 		// Aktivierung der Abfragereihenfolge Plugins
 		inquiryOrderList = new ArrayList<InquiryOrder>();
-		inquiryOrderList.add(new InquiryOrderChronological());
-		inquiryOrderList.add(new InquiryOrderSorted());
+//		inquiryOrderList.add(new InquiryOrderChronological());
+//		inquiryOrderList.add(new InquiryOrderSorted());
 //		inquiryOrderList = null;
 		
 		listPanel = new JPanel(new MigLayout());

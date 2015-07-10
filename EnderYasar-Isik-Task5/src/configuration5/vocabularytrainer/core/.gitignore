@@ -1,0 +1,11 @@
+/.gitignore
+/InquiryDirection.java
+/InquiryOrder.java
+/InquiryOrderChronological.java
+/InquiryOrderSorted.java
+/InquiryType.java
+/Main.java
+/RealStatistics.java
+/Statistics.java
+/WordList.java
+/WordPair.java

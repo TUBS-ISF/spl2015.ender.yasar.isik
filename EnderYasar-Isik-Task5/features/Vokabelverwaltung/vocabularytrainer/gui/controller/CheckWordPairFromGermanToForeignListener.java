@@ -12,12 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import vocabularytrainer.core.InquiryOrder;
-import vocabularytrainer.core.Statistics;
+//import vocabularytrainer.core.Statistics;
 
 public class CheckWordPairFromGermanToForeignListener implements ActionListener {
 	
 	private InquiryOrder inquiryOrder;
-	private Statistics statistics;
+//	private Statistics statistics;
 	private JTextField germanTextField;
 	private JTextField foreignTextField;
 	private JTextField correctnessField;
@@ -26,9 +26,9 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 	private JLabel incorrectPracticesValueLabel;
 	private JLabel correctnessRateValueLabel;
 
-	public CheckWordPairFromGermanToForeignListener(JTextField germanTextField, JTextField foreignTextField, JTextField correctnessField, JLabel unpracticedWordsValueLabel, JLabel correctPracticesValueLabel, JLabel incorrectPracticesValueLabel, JLabel correctnessRateValueLabel, InquiryOrder inquiryOrder, Statistics statistics) {
+	public CheckWordPairFromGermanToForeignListener(JTextField germanTextField, JTextField foreignTextField, JTextField correctnessField, JLabel unpracticedWordsValueLabel, JLabel correctPracticesValueLabel, JLabel incorrectPracticesValueLabel, JLabel correctnessRateValueLabel, InquiryOrder inquiryOrder) {
 		this.inquiryOrder = inquiryOrder;
-		this.statistics = statistics;
+//		this.statistics = statistics;
 		this.germanTextField = germanTextField;
 		this.foreignTextField = foreignTextField;
 		this.correctnessField = correctnessField;
@@ -41,16 +41,16 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 	public void actionPerformed(ActionEvent e) {
 		if(foreignTextField.getText().equals(inquiryOrder.getNextWordPair().getForeignWord())) {
 			correctnessField.setBackground(Color.GREEN);
-			if(statistics != null) {
-				statistics.incrementCorrectPractices();
-				correctPracticesValueLabel.setText(Integer.toString(statistics.getCorrectPractices()));
-			}
+//			if(statistics != null) {
+//				statistics.incrementCorrectPractices();
+//				correctPracticesValueLabel.setText(Integer.toString(statistics.getCorrectPractices()));
+//			}
 		} else {
 			correctnessField.setBackground(Color.RED);
-			if(statistics != null) {
-				statistics.incrementIncorrectPractices();
-				incorrectPracticesValueLabel.setText(Integer.toString(statistics.getIncorrectPractices()));
-			}
+//			if(statistics != null) {
+//				statistics.incrementIncorrectPractices();
+//				incorrectPracticesValueLabel.setText(Integer.toString(statistics.getIncorrectPractices()));
+//			}
 		}
 		inquiryOrder.incrementIndex();
 		if(!inquiryOrder.isEndOfListReached()) {
@@ -62,9 +62,9 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 	        JFrame frame = (JFrame) SwingUtilities.getRoot(component);
 	        frame.dispose();
 		}
-		if(statistics != null) {
-			unpracticedWordsValueLabel.setText(Integer.toString(statistics.getNumberOfWords()-statistics.getNumberOfPracticedWords()));
-			correctnessRateValueLabel.setText(String.format("%.2f %%", statistics.getCorrectnessRate()));
-		}
+//		if(statistics != null) {
+//			unpracticedWordsValueLabel.setText(Integer.toString(statistics.getNumberOfWords()-statistics.getNumberOfPracticedWords()));
+//			correctnessRateValueLabel.setText(String.format("%.2f %%", statistics.getCorrectnessRate()));
+//		}
 	}
 }
