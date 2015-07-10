@@ -17,9 +17,6 @@ public class ToolBar {
 	
 	private List<FileExporter> fileExporterList = new ArrayList<FileExporter>();
 	
-	public ToolBar(WordListTableModel tableModel, JTable wordListTable) {
-	}
-	
 	private void setToolBar() {
 		original();
 		JButton fileSaveAsButton = new JButton(new ImageIcon(getClass().getResource("/save-as.png")));

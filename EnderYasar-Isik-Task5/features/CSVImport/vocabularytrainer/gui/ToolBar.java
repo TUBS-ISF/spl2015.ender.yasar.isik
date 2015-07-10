@@ -12,9 +12,8 @@ public class ToolBar {
 	
 	private List<FileImporter> fileImporterList;
 	
-	private void setToolBar() {
+	public ToolBar(WordListTableModel tableModel, JTable wordListTable) {
 		fileImporterList.add(new CSVFileImporter());
-		original();
 	}
-
+	
 }

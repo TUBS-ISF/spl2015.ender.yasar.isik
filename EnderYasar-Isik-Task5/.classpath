@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="libraries/miglayout-4.0.jar"/>
 	<classpathentry kind="lib" path="libraries/opencsv-3.3.jar"/>
-	<classpathentry kind="src" path="src/configuration5"/>
+	<classpathentry kind="src" path="src/default"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

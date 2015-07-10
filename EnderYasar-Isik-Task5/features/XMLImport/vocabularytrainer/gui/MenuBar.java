@@ -12,9 +12,6 @@ public class MenuBar {
 	
 	private List<FileImporter> fileImporterList;
 	
-	public MenuBar(WordListTableModel tableModel, JTable wordListTable) {
-	}
-	
 	private void setFileMenu() {
 		original();
 		fileImporterList.add(new XMLFileImporter());

@@ -12,12 +12,8 @@ import vocabularytrainer.gui.controller.RemoveWordPairListener;
 
 public class MenuBar {
 	
-	private JMenuBar mainMenuBar;
 	private WordListTableModel tableModel;
 	private JTable wordListTable;
-	
-	public MenuBar(WordListTableModel tableModel, JTable wordListTable) {
-	}
 	
 	private JMenu getEditMenu() {
 		JMenu editMenu = new JMenu("Bearbeiten");

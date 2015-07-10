@@ -56,16 +56,16 @@
 							</description>
 						</feature>
 					</or>
-					<or mandatory="true" name="VariableAbfragerichtung">
+					<or abstract="true" mandatory="true" name="VariableAbfragerichtung">
 						<description>
 							Die variable Abfragerichtung stellt dem Nutzer die Funktion bereit, dass er zwischen den Abfragerichtungen SpracheA nach SpracheB und SpracheB nach SpracheA auswählen und auf diese Weise die Vokabelabfrage nach Belieben variieren kann.
 						</description>
-						<feature mandatory="true" name="DeutschFremdsprache">
+						<feature abstract="true" mandatory="true" name="DeutschFremdsprache">
 							<description>
 								Dieses Feature ermöglicht die Vokabelabfrage von der deutschen Sprache in die gewünschte Fremdsprache.
 							</description>
 						</feature>
-						<feature mandatory="true" name="FremdspracheDeutsch">
+						<feature abstract="true" mandatory="true" name="FremdspracheDeutsch">
 							<description>
 								Dieses Feature ermöglicht die Vokabelabfrage von der Fremdsprache in die deutsche Sprache.
 							</description>

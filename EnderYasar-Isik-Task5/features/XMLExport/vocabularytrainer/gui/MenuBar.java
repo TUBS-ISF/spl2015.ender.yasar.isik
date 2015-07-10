@@ -12,9 +12,6 @@ public class MenuBar {
 	
 	private List<FileExporter> fileExporterList;
 
-	public MenuBar(WordListTableModel tableModel, JTable wordListTable) {
-	}
-	
 	private void setFileMenu() {
 		original();
 		fileExporterList.add(new XMLFileExporter());

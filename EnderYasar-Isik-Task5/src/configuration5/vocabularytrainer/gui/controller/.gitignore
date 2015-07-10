@@ -1,9 +1,0 @@
-/.gitignore
-/AddWordPairListener.java
-/CheckWordPairFromForeignToGermanListener.java
-/CheckWordPairFromGermanToForeignListener.java
-/FileOpenListener.java
-/FileSaveAsListener.java
-/ModifyWordPairListener.java
-/RemoveWordPairListener.java
-/SearchWordPairListener.java
