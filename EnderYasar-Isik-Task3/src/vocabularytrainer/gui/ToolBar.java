@@ -9,10 +9,10 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 
 //#ifdef Import
-import vocabularytrainer.gui.controller.FileOpenListener;
+//@import vocabularytrainer.gui.controller.FileOpenListener;
 //#endif
 //#ifdef Export
-import vocabularytrainer.gui.controller.FileSaveAsListener;
+//@import vocabularytrainer.gui.controller.FileSaveAsListener;
 //#endif
 import vocabularytrainer.gui.controller.RemoveWordPairListener;
 
@@ -31,17 +31,17 @@ public class ToolBar {
 		mainToolBar.setFloatable(false);
 		
 		//#ifdef Import
-		JButton fileOpenButton = new JButton(new ImageIcon(getClass().getResource("/folder.png")));
-		fileOpenButton.setBorderPainted(false);
-		mainToolBar.add(fileOpenButton);
-		fileOpenButton.addActionListener(new FileOpenListener(tableModel));
+//@		JButton fileOpenButton = new JButton(new ImageIcon(getClass().getResource("/folder.png")));
+//@		fileOpenButton.setBorderPainted(false);
+//@		mainToolBar.add(fileOpenButton);
+//@		fileOpenButton.addActionListener(new FileOpenListener(tableModel));
 		//#endif
 		
 		//#ifdef Export
-		JButton fileSaveAsButton = new JButton(new ImageIcon(getClass().getResource("/save-as.png")));
-		fileSaveAsButton.setBorderPainted(false);
-		mainToolBar.add(fileSaveAsButton);
-		fileSaveAsButton.addActionListener(new FileSaveAsListener(tableModel));
+//@		JButton fileSaveAsButton = new JButton(new ImageIcon(getClass().getResource("/save-as.png")));
+//@		fileSaveAsButton.setBorderPainted(false);
+//@		mainToolBar.add(fileSaveAsButton);
+//@		fileSaveAsButton.addActionListener(new FileSaveAsListener(tableModel));
 		//#endif
 
 		JButton addWordButton = new JButton(new ImageIcon(getClass().getResource("/add.png")));
@@ -71,15 +71,15 @@ public class ToolBar {
 		removeWordButton.addActionListener(new RemoveWordPairListener(wordListTable, tableModel));
 
 		//#ifdef Suchen
-		JButton searchWordButton = new JButton(new ImageIcon(getClass().getResource("/search.png")));
-		searchWordButton.setBorderPainted(false);
-		mainToolBar.add(searchWordButton);
-		searchWordButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				@SuppressWarnings("unused")
-				SearchDialog searchDialog = new SearchDialog(tableModel, wordListTable);
-			}
-		});
+//@		JButton searchWordButton = new JButton(new ImageIcon(getClass().getResource("/search.png")));
+//@		searchWordButton.setBorderPainted(false);
+//@		mainToolBar.add(searchWordButton);
+//@		searchWordButton.addActionListener(new ActionListener() {
+//@			public void actionPerformed(ActionEvent e) {
+//@				@SuppressWarnings("unused")
+//@				SearchDialog searchDialog = new SearchDialog(tableModel, wordListTable);
+//@			}
+//@		});
 		//#endif
 		
 //		JButton executeButton = new JButton(new ImageIcon(getClass().getResource("/execute.png")));

@@ -9,10 +9,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JTable;
 
 //#ifdef Import
-import vocabularytrainer.gui.controller.FileOpenListener;
+//@import vocabularytrainer.gui.controller.FileOpenListener;
 //#endif
 //#ifdef Export
-import vocabularytrainer.gui.controller.FileSaveAsListener;
+//@import vocabularytrainer.gui.controller.FileSaveAsListener;
 //#endif
 import vocabularytrainer.gui.controller.RemoveWordPairListener;
 
@@ -37,15 +37,15 @@ public class MenuBar {
 	private JMenu getFileMenu() {
 		JMenu fileMenu = new JMenu("Datei");
 		//#ifdef Import
-		JMenuItem fileOpenItem = new JMenuItem("Vokabelliste öffnen");
-		fileMenu.add(fileOpenItem);
-		fileOpenItem.addActionListener(new FileOpenListener(tableModel));
+//@		JMenuItem fileOpenItem = new JMenuItem("Vokabelliste öffnen");
+//@		fileMenu.add(fileOpenItem);
+//@		fileOpenItem.addActionListener(new FileOpenListener(tableModel));
 		//#endif
 
 		//#ifdef Export
-		JMenuItem fileSaveAsItem = new JMenuItem("Vokabelliste speichern als");
-		fileMenu.add(fileSaveAsItem);
-		fileSaveAsItem.addActionListener(new FileSaveAsListener(tableModel));
+//@		JMenuItem fileSaveAsItem = new JMenuItem("Vokabelliste speichern als");
+//@		fileMenu.add(fileSaveAsItem);
+//@		fileSaveAsItem.addActionListener(new FileSaveAsListener(tableModel));
 		//#endif
 
 		JMenuItem shutdownProgramItem = new JMenuItem("Vokabeltrainer beenden");
@@ -85,15 +85,15 @@ public class MenuBar {
 		removeWordItem.addActionListener(new RemoveWordPairListener(wordListTable, tableModel));
 
 		//#ifdef Suchen
-		JMenuItem searchWordItem = new JMenuItem("Vokabel suchen");
-		editMenu.addSeparator();
-		editMenu.add(searchWordItem);
-		searchWordItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				@SuppressWarnings("unused")
-				SearchDialog searchDialog = new SearchDialog(tableModel, wordListTable);
-			}
-		});
+//@		JMenuItem searchWordItem = new JMenuItem("Vokabel suchen");
+//@		editMenu.addSeparator();
+//@		editMenu.add(searchWordItem);
+//@		searchWordItem.addActionListener(new ActionListener() {
+//@			public void actionPerformed(ActionEvent e) {
+//@				@SuppressWarnings("unused")
+//@				SearchDialog searchDialog = new SearchDialog(tableModel, wordListTable);
+//@			}
+//@		});
 		//#endif
 		
 		return editMenu;

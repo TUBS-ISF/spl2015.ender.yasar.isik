@@ -5,7 +5,7 @@ public enum InquiryDirection {
 	GERMAN_TO_FOREIGN,
 	//#endif
 	//#ifdef FremdspracheDeutsch
-	FOREIGN_TO_GERMAN
+//@	FOREIGN_TO_GERMAN
 	//#endif
 	;
 		
@@ -16,9 +16,9 @@ public enum InquiryDirection {
 		}
 		//#endif
 		//#ifdef FremdspracheDeutsch
-		if(direction.equals("Fremdsprache » Deutsch")) {
-			return FOREIGN_TO_GERMAN;
-		}
+//@		if(direction.equals("Fremdsprache » Deutsch")) {
+//@			return FOREIGN_TO_GERMAN;
+//@		}
 		//#endif
 		return null;
 	}

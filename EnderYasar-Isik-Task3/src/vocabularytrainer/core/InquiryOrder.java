@@ -5,7 +5,7 @@ public enum InquiryOrder {
 	CHRONOLOGICAL,
 	//#endif
 	//#ifdef Sortiert
-	SORTED
+//@	SORTED
 	//#endif
 	;
 
@@ -16,9 +16,9 @@ public enum InquiryOrder {
 		}
 		//#endif
 		//#ifdef Sortiert
-		if(order.equals("Sortiert")) {
-			return SORTED;
-		}
+//@		if(order.equals("Sortiert")) {
+//@			return SORTED;
+//@		}
 		//#endif
 
 		return null;

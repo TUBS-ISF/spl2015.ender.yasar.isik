@@ -17,7 +17,7 @@ import vocabularytrainer.core.WordList;
 import vocabularytrainer.gui.controller.CheckWordPairFromGermanToForeignListener;
 //#endif
 //#ifdef FremdspracheDeutsch
-import vocabularytrainer.gui.controller.CheckWordPairFromForeignToGermanListener;
+//@import vocabularytrainer.gui.controller.CheckWordPairFromForeignToGermanListener;
 //#endif
 
 import net.miginfocom.layout.CC;
@@ -48,16 +48,16 @@ public class PracticeFrame extends JFrame {
 		this.wordList = wordList;
 		//#endif
 		//#ifdef Sortiert
-		if(inquiryOrder == InquiryOrder.SORTED) {
-			this.wordList = wordList.getSortedClonedWordList();
-		}
+//@		if(inquiryOrder == InquiryOrder.SORTED) {
+//@			this.wordList = wordList.getSortedClonedWordList();
+//@		}
 		//#endif
 
 		panel = new JPanel(new MigLayout(new LC().wrap().alignX("center")));
 		panel.add(getTranslationPanel(), new CC().growX());
 		panel.add(getCorrectnessPanel(), new CC().growX());
 		//#ifdef Statistik
-		panel.add(getStatisticsPanel(), new CC().growX());
+//@		panel.add(getStatisticsPanel(), new CC().growX());
 		//#endif
 		panel.add(getButtonsPanel(), new CC().growX());
 		
@@ -82,10 +82,10 @@ public class PracticeFrame extends JFrame {
 		}
 		//#endif
 		//#ifdef FremdspracheDeutsch
-		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
-			foreignTextField.setText(wordList.getWordList().get(0).getForeignWord());
-			foreignTextField.setEnabled(false);
-		}
+//@		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
+//@			foreignTextField.setText(wordList.getWordList().get(0).getForeignWord());
+//@			foreignTextField.setEnabled(false);
+//@		}
 		//#endif
 
 		translationPanel.add(germanLabel);
@@ -112,35 +112,35 @@ public class PracticeFrame extends JFrame {
 	}
 	
 	//#ifdef Statistik
-	private JPanel getStatisticsPanel() {
-		JPanel statisticsPanel = new JPanel(new MigLayout(new LC().wrapAfter(2)));
-		JLabel wordsLabel = new JLabel("Gesamtanzahl Vokabeln:");
-		wordsValueLable = new JLabel(Integer.toString(wordList.getWordList().size()));
-		JLabel unpracticedWordsLabel = new JLabel("Verbleibende Anzahl an Vokabeln:");
-		unpracticedWordsValueLabel = new JLabel(Integer.toString(wordList.getWordList().size()));
-		JLabel correctPracticesLabel = new JLabel("Anzahl richtiger Antworten:");
-		correctPracticesValueLabel = new JLabel("0");
-		JLabel incorrectPracticesLabel = new JLabel("Anzahl falscher Antworten:");
-		incorrectPracticesValueLabel = new JLabel("0");
-		JLabel correctnessRateLabel = new JLabel("Bewertung:");
-		correctnessRateValueLabel = new JLabel("100,00 %");
-		
-		statisticsPanel.add(wordsLabel);
-		statisticsPanel.add(wordsValueLable, new CC().pushX().alignX("right"));
-		statisticsPanel.add(unpracticedWordsLabel);
-		statisticsPanel.add(unpracticedWordsValueLabel, new CC().pushX().alignX("right"));
-		statisticsPanel.add(correctPracticesLabel);
-		statisticsPanel.add(correctPracticesValueLabel, new CC().pushX().alignX("right"));
-		statisticsPanel.add(incorrectPracticesLabel);
-		statisticsPanel.add(incorrectPracticesValueLabel, new CC().pushX().alignX("right"));
-		statisticsPanel.add(correctnessRateLabel);
-		statisticsPanel.add(correctnessRateValueLabel, new CC().pushX().alignX("right"));
-		
-		TitledBorder border = new TitledBorder("Statistik");
-		statisticsPanel.setBorder(border);
-
-		return statisticsPanel;
-	}
+//@	private JPanel getStatisticsPanel() {
+//@		JPanel statisticsPanel = new JPanel(new MigLayout(new LC().wrapAfter(2)));
+//@		JLabel wordsLabel = new JLabel("Gesamtanzahl Vokabeln:");
+//@		wordsValueLable = new JLabel(Integer.toString(wordList.getWordList().size()));
+//@		JLabel unpracticedWordsLabel = new JLabel("Verbleibende Anzahl an Vokabeln:");
+//@		unpracticedWordsValueLabel = new JLabel(Integer.toString(wordList.getWordList().size()));
+//@		JLabel correctPracticesLabel = new JLabel("Anzahl richtiger Antworten:");
+//@		correctPracticesValueLabel = new JLabel("0");
+//@		JLabel incorrectPracticesLabel = new JLabel("Anzahl falscher Antworten:");
+//@		incorrectPracticesValueLabel = new JLabel("0");
+//@		JLabel correctnessRateLabel = new JLabel("Bewertung:");
+//@		correctnessRateValueLabel = new JLabel("100,00 %");
+//@		
+//@		statisticsPanel.add(wordsLabel);
+//@		statisticsPanel.add(wordsValueLable, new CC().pushX().alignX("right"));
+//@		statisticsPanel.add(unpracticedWordsLabel);
+//@		statisticsPanel.add(unpracticedWordsValueLabel, new CC().pushX().alignX("right"));
+//@		statisticsPanel.add(correctPracticesLabel);
+//@		statisticsPanel.add(correctPracticesValueLabel, new CC().pushX().alignX("right"));
+//@		statisticsPanel.add(incorrectPracticesLabel);
+//@		statisticsPanel.add(incorrectPracticesValueLabel, new CC().pushX().alignX("right"));
+//@		statisticsPanel.add(correctnessRateLabel);
+//@		statisticsPanel.add(correctnessRateValueLabel, new CC().pushX().alignX("right"));
+//@		
+//@		TitledBorder border = new TitledBorder("Statistik");
+//@		statisticsPanel.setBorder(border);
+//@
+//@		return statisticsPanel;
+//@	}
 	//#endif
 	
 	private JPanel getButtonsPanel() {
@@ -154,9 +154,9 @@ public class PracticeFrame extends JFrame {
 		}
 		//#endif
 		//#ifdef FremdspracheDeutsch
-		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
-			nextWordButton.addActionListener(new CheckWordPairFromForeignToGermanListener(wordList, germanTextField, foreignTextField, correctnessField, unpracticedWordsValueLabel, correctPracticesValueLabel, incorrectPracticesValueLabel, correctnessRateValueLabel));
-		}
+//@		if(inquiryDirection == InquiryDirection.FOREIGN_TO_GERMAN) {
+//@			nextWordButton.addActionListener(new CheckWordPairFromForeignToGermanListener(wordList, germanTextField, foreignTextField, correctnessField, unpracticedWordsValueLabel, correctPracticesValueLabel, incorrectPracticesValueLabel, correctnessRateValueLabel));
+//@		}
 		//#endif
 		
 		JButton cancelButton = new JButton("Abbrechen");

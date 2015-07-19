@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 //#ifdef Statistik
-import vocabularytrainer.core.Statistics;
+//@import vocabularytrainer.core.Statistics;
 //#endif
 import vocabularytrainer.core.WordList;
 
@@ -17,7 +17,7 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 	
 	private int index;
 	//#ifdef Statistik
-	private Statistics statistics;
+//@	private Statistics statistics;
 	//#endif
 	private WordList wordList;
 	private JTextField germanTextField;
@@ -31,7 +31,7 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 	public CheckWordPairFromGermanToForeignListener(WordList wordList, JTextField germanTextField, JTextField foreignTextField, JTextField correctnessField, JLabel unpracticedWordsValueLabel, JLabel correctPracticesValueLabel, JLabel incorrectPracticesValueLabel, JLabel correctnessRateValueLabel) {
 		index = 0;
 		//#ifdef Statistik
-		statistics = new Statistics(wordList.getWordList().size());
+//@		statistics = new Statistics(wordList.getWordList().size());
 		//#endif
 		this.wordList = wordList;
 		this.germanTextField = germanTextField;
@@ -47,14 +47,14 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 		if(foreignTextField.getText().equals(wordList.getWordList().get(index).getForeignWord())) {
 			correctnessField.setBackground(Color.GREEN);
 			//#ifdef Statistik
-			statistics.incrementCorrectPractices();
-			correctPracticesValueLabel.setText(Integer.toString(statistics.getCorrectPractices()));
+//@			statistics.incrementCorrectPractices();
+//@			correctPracticesValueLabel.setText(Integer.toString(statistics.getCorrectPractices()));
 			//#endif
 		} else {
 			correctnessField.setBackground(Color.RED);
 			//#ifdef Statistik
-			statistics.incrementIncorrectPractices();
-			incorrectPracticesValueLabel.setText(Integer.toString(statistics.getIncorrectPractices()));
+//@			statistics.incrementIncorrectPractices();
+//@			incorrectPracticesValueLabel.setText(Integer.toString(statistics.getIncorrectPractices()));
 			//#endif
 		}
 		index++;
@@ -63,8 +63,8 @@ public class CheckWordPairFromGermanToForeignListener implements ActionListener 
 			foreignTextField.setText("");
 		}
 		//#ifdef Statistik
-		unpracticedWordsValueLabel.setText(Integer.toString(statistics.getNumberOfWords()-statistics.getNumberOfPracticedWords()));
-		correctnessRateValueLabel.setText(String.format("%.2f %%", statistics.getCorrectnessRate()));
+//@		unpracticedWordsValueLabel.setText(Integer.toString(statistics.getNumberOfWords()-statistics.getNumberOfPracticedWords()));
+//@		correctnessRateValueLabel.setText(String.format("%.2f %%", statistics.getCorrectnessRate()));
 		//#endif
 	}
 }

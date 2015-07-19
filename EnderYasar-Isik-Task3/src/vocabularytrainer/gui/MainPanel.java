@@ -57,7 +57,7 @@ public class MainPanel {
 		orderComboBox.addItem("Chronologisch");
 		//#endif
 		//#ifdef Sortiert
-		orderComboBox.addItem("Sortiert");
+//@		orderComboBox.addItem("Sortiert");
 		//#endif
 		
 		JLabel directionLabel = new JLabel("Abfragerichtung");
@@ -66,7 +66,7 @@ public class MainPanel {
 		directionComboBox.addItem("Deutsch » Fremdsprache");
 		//#endif
 		//#ifdef FremdspracheDeutsch
-		directionComboBox.addItem("Fremdsprache » Deutsch");
+//@		directionComboBox.addItem("Fremdsprache » Deutsch");
 		//#endif
 		
 		JLabel typeLabel = new JLabel("Abfragetyp");
