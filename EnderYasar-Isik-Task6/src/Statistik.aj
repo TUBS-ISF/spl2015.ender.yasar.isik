@@ -14,7 +14,7 @@ public aspect Statistik {
 		frame.setStatistics(new RealStatistics(frame.getWordList().getWordList().size()));
 	}
 	
-	after(PracticeFrame frame) : execution(private JPanel vocabularytrainer.gui.PracticeFrame.getCorrectnessPanel()) && this(frame) {
+	before(PracticeFrame frame) : call(private JPanel vocabularytrainer.gui.PracticeFrame.getButtonsPanel()) && this(frame) {
 		JPanel statisticsPanel = new JPanel(new MigLayout(new LC().wrapAfter(2)));
 		JLabel wordsLabel = new JLabel("Gesamtanzahl Vokabeln:");
 		frame.setWordsValueLable(new JLabel(Integer.toString(frame.getWordList().getWordList().size())));
@@ -41,7 +41,7 @@ public aspect Statistik {
 		TitledBorder border = new TitledBorder("Statistik");
 		statisticsPanel.setBorder(border);
 		
-		frame.getPanel().add(statisticsPanel);
+		frame.getPanel().add(statisticsPanel, new CC().growX());
 	}
 	
 	class RealStatistics implements Statistics {

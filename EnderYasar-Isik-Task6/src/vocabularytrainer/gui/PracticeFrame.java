@@ -234,6 +234,4 @@ public class PracticeFrame extends JFrame {
 	public void setWordList(WordList wordList) {
 		this.wordList = wordList;
 	}
-
-	
 }
